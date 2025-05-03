@@ -1,4 +1,5 @@
 <?php
+require 'vendor/autoload.php';
 define('APP_PATH', __DIR__ . '/');
 require_once 'App/Routings/web.php';
 require_once 'App/Core/BaseController.php';

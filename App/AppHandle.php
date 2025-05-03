@@ -19,7 +19,8 @@ class Appilaction {
             $response = $this->router->dispatch($requestMethod, $requestPath);
 
             if ($response) {
-                switch ($response['type']) {
+                $type = $response['type'] ?? 'none';
+                switch ($type) {
                     case 'view':
                         $viewFile = APP_PATH . 'App/Views/' . str_replace('.', '/', $response['path']) . '.php';
                         if (file_exists($viewFile)) {
@@ -41,6 +42,7 @@ class Appilaction {
                         exit;
                         break;
                     default:
+                        echo $response;
                         break;
                 }
             } else {
