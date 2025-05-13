@@ -4,7 +4,7 @@ class DB {
     private static $instance = null;
     private \PDO $connection;
     private $host = 'mysql_container';
-    private $dbName = 'app-test';
+    private $dbName = 'app_test';
     private $username = 'root';
     private $password = '1';
 

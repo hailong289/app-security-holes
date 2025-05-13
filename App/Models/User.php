@@ -6,7 +6,7 @@ use App\Database\DB;
 class User
 {
     public DB $db;
-    protected $tb = 'user';
+    protected $tb = 'users';
     protected  $field = [
         'name',
         'username',
