@@ -1,7 +1,10 @@
 name: Deploy to Server
 
 on:
-  push:
+#  push:
+#    branches:
+#      - master
+  pull_request:
     branches:
       - master
 
