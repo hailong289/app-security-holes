@@ -27,9 +27,17 @@ jobs:
         DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
         SERVER_HOST: ${{ secrets.SERVER_HOST }}
 
-    - name: Deploy to server
+    - name: Deploy via SSH
       run: |
-        echo "HOST is: $HOST"
-        rsync -avz --delete -e "ssh -i ~/.ssh/id_rsa" ./ $HOST:~/public_html/
+        ssh -i ~/.ssh/id_rsa $HOST << 'ENDSSH'
+        set -e
+        cd ~/public_html || exit 1
+        pwd
+        git fetch origin master
+        git reset --hard FETCH_HEAD
+        git clean -df
+        git pull
+        ENDSSH
+        
       env:
         HOST: ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}
