@@ -30,6 +30,6 @@ jobs:
     - name: Deploy to server
       run: |
         echo "HOST is: $HOST"
-        rsync -avz --delete ./ $HOST:~/public_html/
+        rsync -avz --delete -e "ssh -i ~/.ssh/id_rsa" ./ $HOST:~/public_html/
       env:
         HOST: ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}
