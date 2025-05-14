@@ -16,10 +16,15 @@ jobs:
     - name: Set up SSH
       run: |
         mkdir -p ~/.ssh
-        echo "${{ secrets.KEY_DEPLOY }}" > ~/.ssh/id_rsa
+        echo "$DEPLOY_KEY" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan -H your-server.com >> ~/.ssh/known_hosts
+        ssh-keyscan -H $SERVER_HOST >> ~/.ssh/known_hosts
+      env:
+        DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+        SERVER_HOST: ${{ secrets.SERVER_HOST }}
 
     - name: Deploy to server
       run: |
-        rsync -avz --delete ./ ${{ secrets.HOSTNAME }}:~/public_html/
+        rsync -avz --delete ./ $HOST:~/public_html/
+      env:
+        HOST: ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}
