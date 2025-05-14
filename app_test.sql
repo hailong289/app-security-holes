@@ -17,36 +17,24 @@
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
+    -- ----------------------------
+-- Table structure for users
 -- ----------------------------
--- Table structure for comments
--- ----------------------------
-DROP TABLE IF EXISTS `comments`;
-CREATE TABLE `comments`  (
-  `comment_id` int NOT NULL AUTO_INCREMENT,
-  `post_id` int NOT NULL,
-  `user_id` int NOT NULL,
-  `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci  NOT NULL,
+  `username` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci  NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci  NOT NULL,
+  `phone` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci  NULL DEFAULT NULL,
+  `date_of_birth` date NULL DEFAULT NULL,
+  `gender` tinyint NULL DEFAULT (0) COMMENT '0: Khác, 1: nam, 2: nữ',
+  `role` tinyint NOT NULL DEFAULT (0) COMMENT '0: user, 1: admin',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`comment_id`) USING BTREE,
-  INDEX `post_id`(`post_id` ASC) USING BTREE,
-  INDEX `user_id`(`user_id` ASC) USING BTREE,
-  CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`post_id`) ON DELETE CASCADE ON UPDATE RESTRICT,
-  CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of comments
--- ----------------------------
-INSERT INTO `comments` VALUES (1, 1, 2, 'Bài viết rất hữu ích, cảm ơn admin!', '2025-05-13 13:42:20');
-INSERT INTO `comments` VALUES (2, 2, 1, 'Mình sẽ thử nấu phở theo công thức này.', '2025-05-13 13:42:20');
-INSERT INTO `comments` VALUES (3, 4, 1, 'Đà Lạt đẹp quá, thanks bạn chia sẻ!', '2025-05-13 13:42:20');
-INSERT INTO `comments` VALUES (4, 5, 2, 'Blockchain hơi khó hiểu, có bài chi tiết hơn không?', '2025-05-13 13:42:20');
-INSERT INTO `comments` VALUES (5, 6, 1, 'Phim này mình cũng thích, đồng ý với review.', '2025-05-13 13:42:20');
-INSERT INTO `comments` VALUES (6, 8, 1, 'Bánh flan làm dễ mà ngon, recommend mọi người!', '2025-05-13 13:42:20');
-INSERT INTO `comments` VALUES (7, 10, 1, 'Hà Nội mùa này đẹp, cảm ơn gợi ý check-in.', '2025-05-13 13:42:20');
-INSERT INTO `comments` VALUES (8, 12, 1, 'Mình đang học tiếng Anh, bài này hay quá!', '2025-05-13 13:42:20');
-INSERT INTO `comments` VALUES (9, 15, 2, 'An ninh mạng quan trọng thật, thanks bài viết.', '2025-05-13 13:42:20');
-INSERT INTO `comments` VALUES (10, 18, 1, 'Trà sữa homemade ngon hơn ngoài tiệm luôn!', '2025-05-13 13:42:20');
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `username`(`username` ASC) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci  ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for posts
@@ -55,18 +43,44 @@ DROP TABLE IF EXISTS `posts`;
 CREATE TABLE `posts`  (
   `post_id` int NOT NULL AUTO_INCREMENT,
   `user_id` int NOT NULL,
-  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `status` enum('draft','published','archived') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'draft',
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci  NOT NULL,
+  `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci  NOT NULL,
+  `status` enum('draft','published','archived') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci  NOT NULL DEFAULT 'draft',
   `views` int NULL DEFAULT 0,
   `likes` int NULL DEFAULT 0,
-  `category` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `category` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci  NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`post_id`) USING BTREE,
   INDEX `user_id`(`user_id` ASC) USING BTREE,
   CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci  ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for comments
+-- ----------------------------
+DROP TABLE IF EXISTS `comments`;
+CREATE TABLE `comments`  (
+ `comment_id` int NOT NULL AUTO_INCREMENT,
+ `post_id` int NOT NULL,
+ `user_id` int NOT NULL,
+ `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci  NOT NULL,
+ `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+ PRIMARY KEY (`comment_id`) USING BTREE,
+ INDEX `post_id`(`post_id` ASC) USING BTREE,
+ INDEX `user_id`(`user_id` ASC) USING BTREE,
+ CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`post_id`) ON DELETE CASCADE ON UPDATE RESTRICT,
+ CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci  ROW_FORMAT = Dynamic;
+
+
+
+-- ----------------------------
+-- Records of users
+-- ----------------------------
+INSERT INTO `users` VALUES (1, 'Nguyen Van Admin', 'admin01', '$2y$10$hashedpassword1234567890', '0905123456', '1990-01-15', 1, 1, '2025-05-13 13:42:19', '2025-05-13 13:42:19');
+INSERT INTO `users` VALUES (2, 'Tran Thi User', 'user01', '$2y$10$hashedpassword0987654321', '0987654321', '1995-06-20', 2, 0, '2025-05-13 13:42:19', '2025-05-13 13:42:19');
+
 
 -- ----------------------------
 -- Records of posts
@@ -92,29 +106,19 @@ INSERT INTO `posts` VALUES (18, 2, 'Cách làm trà sữa tại nhà', 'Công th
 INSERT INTO `posts` VALUES (19, 1, 'IoT và ứng dụng', 'Internet of Things thay đổi cuộc sống.', 'archived', 40, 5, 'Công nghệ', '2025-05-13 13:42:20', '2025-05-13 13:42:20');
 INSERT INTO `posts` VALUES (20, 2, 'Kinh nghiệm phỏng vấn xin việc', 'Mẹo để vượt qua vòng phỏng vấn.', 'published', 220, 38, 'Kỹ năng', '2025-05-13 13:42:20', '2025-05-13 13:42:20');
 
--- ----------------------------
--- Table structure for users
--- ----------------------------
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE `users`  (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `username` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `phone` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `date_of_birth` date NULL DEFAULT NULL,
-  `gender` tinyint NULL DEFAULT (0) COMMENT '0: Khác, 1: nam, 2: nữ',
-  `role` tinyint NOT NULL DEFAULT (0) COMMENT '0: user, 1: admin',
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE INDEX `username`(`username` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of users
+-- Records of comments
 -- ----------------------------
-INSERT INTO `users` VALUES (1, 'Nguyen Van Admin', 'admin01', '$2y$10$hashedpassword1234567890', '0905123456', '1990-01-15', 1, 1, '2025-05-13 13:42:19', '2025-05-13 13:42:19');
-INSERT INTO `users` VALUES (2, 'Tran Thi User', 'user01', '$2y$10$hashedpassword0987654321', '0987654321', '1995-06-20', 2, 0, '2025-05-13 13:42:19', '2025-05-13 13:42:19');
+INSERT INTO `comments` VALUES (1, 1, 2, 'Bài viết rất hữu ích, cảm ơn admin!', '2025-05-13 13:42:20');
+INSERT INTO `comments` VALUES (2, 2, 1, 'Mình sẽ thử nấu phở theo công thức này.', '2025-05-13 13:42:20');
+INSERT INTO `comments` VALUES (3, 4, 1, 'Đà Lạt đẹp quá, thanks bạn chia sẻ!', '2025-05-13 13:42:20');
+INSERT INTO `comments` VALUES (4, 5, 2, 'Blockchain hơi khó hiểu, có bài chi tiết hơn không?', '2025-05-13 13:42:20');
+INSERT INTO `comments` VALUES (5, 6, 1, 'Phim này mình cũng thích, đồng ý với review.', '2025-05-13 13:42:20');
+INSERT INTO `comments` VALUES (6, 8, 1, 'Bánh flan làm dễ mà ngon, recommend mọi người!', '2025-05-13 13:42:20');
+INSERT INTO `comments` VALUES (7, 10, 1, 'Hà Nội mùa này đẹp, cảm ơn gợi ý check-in.', '2025-05-13 13:42:20');
+INSERT INTO `comments` VALUES (8, 12, 1, 'Mình đang học tiếng Anh, bài này hay quá!', '2025-05-13 13:42:20');
+INSERT INTO `comments` VALUES (9, 15, 2, 'An ninh mạng quan trọng thật, thanks bài viết.', '2025-05-13 13:42:20');
+INSERT INTO `comments` VALUES (10, 18, 1, 'Trà sữa homemade ngon hơn ngoài tiệm luôn!', '2025-05-13 13:42:20');
 
 SET FOREIGN_KEY_CHECKS = 1;
