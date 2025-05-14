@@ -15,17 +15,21 @@ jobs:
 
     - name: Set up SSH
       run: |
+        echo "DEPLOY_KEY is: $DEPLOY_KEY"
+        echo "SERVER_HOST is: $DEPLOY_KEY"
         mkdir -p ~/.ssh
         echo "$DEPLOY_KEY" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan -H github.com >> ~/.ssh/known_hosts
-        echo -e "Host *\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+        echo "  StrictHostKeyChecking no" >> ~/.ssh/config
+        echo "  UserKnownHostsFile /dev/null" >> ~/.ssh/config
       env:
         DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
         SERVER_HOST: ${{ secrets.SERVER_HOST }}
 
     - name: Deploy to server
       run: |
+        echo "HOST is: $HOST"
         rsync -avz --delete ./ $HOST:~/public_html/
       env:
         HOST: ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}
