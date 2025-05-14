@@ -3,10 +3,10 @@ namespace App\Database;
 class DB {
     private static $instance = null;
     private \PDO $connection;
-    private $host = 'sgp.domcloud.co';
-    private $dbName = 'app_lo_db';
-    private $username = 'app-lo';
-    private $password = 'weoP71)4eXX8(_Bb5O';
+    private $host = 'mysql_container';
+    private $dbName = 'app_test';
+    private $username = 'root';
+    private $password = '1';
 
     private function __construct()
     {
