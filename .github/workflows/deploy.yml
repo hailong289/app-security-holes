@@ -14,36 +14,42 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+
+      - name: Generate .env file
+        run: |
+          apk add --no-cache gettext
+          envsubst < .env.template > .env
+          cat .env  # Optional: verify content
+        container: alpine:latest
 
       - name: Set up SSH
-        uses: webfactory/ssh-agent@v0.5.3
+        uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: Run in Alpine container
-        uses: docker://alpine:latest
-        with:
-          entrypoint: /bin/sh
-          args: |
-            -c "
-            apk add --no-cache gettext &&
-            envsubst < .env.template > .env &&
-            cat .env
-            "
+      - name: Add host to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+        env:
+          SERVER_HOST: ${{ secrets.SERVER_HOST }}
 
       - name: Deploy to server
         run: |
-          scp .env $HOST:~/public_html/.env
-          ssh -o StrictHostKeyChecking=no $HOST << 'EOF'
-            set -e  
+          scp .env ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:~/public_html/.env
+          ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << 'EOF'
+            set -e
             cd ~/public_html || exit 1
             git fetch origin master
             git reset --hard FETCH_HEAD
             git clean -df
             rm -rf vendor composer.lock
-            composer i
+            composer install
           EOF
-          
-        env:
-          HOST: ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}
+
+      - name: Upload .env artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: env-file
+          path: .env
