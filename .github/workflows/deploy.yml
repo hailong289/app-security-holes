@@ -1,9 +1,9 @@
 name: Deploy to Server
 
 on:
-#  push:
-#    branches:
-#      - master
+  push:
+    branches:
+      - master
   pull_request:
     branches:
       - master
@@ -21,14 +21,29 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
+      - name: Run in Alpine container
+        uses: docker://alpine:latest
+        with:
+          entrypoint: /bin/sh
+          args: |
+            -c "
+            apk add --no-cache gettext &&
+            envsubst < .env.template > .env &&
+            cat .env
+            "
+
       - name: Deploy to server
         run: |
+          scp .env $HOST:~/public_html/.env
           ssh -o StrictHostKeyChecking=no $HOST << 'EOF'
             set -e  
             cd ~/public_html || exit 1
             git fetch origin master
             git reset --hard FETCH_HEAD
             git clean -df
+            rm -rf vendor composer.lock
+            composer i
           EOF
+          
         env:
           HOST: ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}

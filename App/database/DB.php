@@ -3,13 +3,17 @@ namespace App\Database;
 class DB {
     private static $instance = null;
     private \PDO $connection;
-    private $host = 'mysql_container';
-    private $dbName = 'app_test';
-    private $username = 'root';
-    private $password = '1';
+    private $host;
+    private $dbName;
+    private $username;
+    private $password;
 
     private function __construct()
     {
+        $this->host = getenv('DB_HOST');
+        $this->dbName = getenv('DB_NAME');
+        $this->username = getenv('DB_USERNAME');
+        $this->password = getenv('DB_PASSWORD');
         $this->connect();
     }
 

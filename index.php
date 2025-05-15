@@ -7,6 +7,9 @@ require_once 'App/AppHandle.php';
 require_once 'App/database/DB.php';
 require_once 'App/Core/helper.php';
 
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 
 use App\Appilaction;
 
