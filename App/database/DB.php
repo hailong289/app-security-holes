@@ -12,7 +12,7 @@ class DB {
     {
         $this->host = config('DB_HOST', 'localhost');
         $this->dbName = config('DB_NAME', 'app_test');
-        $this->username = config('DB_USERNAME', 'root');
+        $this->username = config('DB_USER', 'root');
         $this->password = config('DB_PASSWORD', '1');
         $this->connect();
     }
