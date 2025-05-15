@@ -1,7 +1,7 @@
 <?php
 define('APP_PATH', __DIR__ . '/');
 require 'vendor/autoload.php';
-$dotenv = \Dotenv\Dotenv::createImmutable(__DIR__, '.env');
+$dotenv = \Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 require_once 'App/Routings/web.php';
 require_once 'App/Core/BaseController.php';

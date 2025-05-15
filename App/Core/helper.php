@@ -14,3 +14,18 @@ if (!function_exists('url')) {
          return getBaseUrl() . $path;
      }
 }
+
+if (!function_exists('config')) {
+    function config($key, $default = null)
+    {
+        if (isset($_ENV[$key])) {
+            return $_ENV[$key] ?? $default;
+        }
+
+        if (getenv($key)) {
+            return getenv($key);
+        }
+
+        return $default;
+    }
+}

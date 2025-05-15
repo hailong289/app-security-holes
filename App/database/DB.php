@@ -10,10 +10,10 @@ class DB {
 
     private function __construct()
     {
-        $this->host = getenv('DB_HOST') ?? $_ENV['DB_HOST'] ?? 'localhost';
-        $this->dbName = getenv('DB_NAME') ?? $_ENV['DB_NAME'] ?? 'my_database';
-        $this->username = getenv('DB_USERNAME') ?? $_ENV['DB_USERNAME'] ?? 'root';
-        $this->password = getenv('DB_PASSWORD') ?? $_ENV['DB_PASSWORD'] ?? '';
+        $this->host = config('DB_HOST', 'localhost');
+        $this->dbName = config('DB_NAME', 'app_test');
+        $this->username = config('DB_USERNAME', 'root');
+        $this->password = config('DB_PASSWORD', '1');
         $this->connect();
     }
 
