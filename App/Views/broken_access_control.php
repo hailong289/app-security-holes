@@ -58,6 +58,9 @@
                             type="checkbox"
                             id="toggle"
                             class="peer absolute opacity-0 w-0 h-0"
+                            name="checkAdmin"
+                            value="1"
+                            <?= !empty($_GET['checkAdmin']) ? 'checked' : '' ?>
                     />
                     <label
                             for="toggle"

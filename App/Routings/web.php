@@ -30,3 +30,4 @@ $router->addRoute('GET', '/vulnerable-outdated-components', [VulnerableOutdatedC
 // test broken-access-control
 $router->addRoute('GET', '/test/login', [BrokenAccessControlController::class, 'loginForm']);
 $router->addRoute('POST', '/test/login', [BrokenAccessControlController::class, 'login']);
+ $router->addRoute('GET', '/test/admin', [BrokenAccessControlController::class, 'admin']);
