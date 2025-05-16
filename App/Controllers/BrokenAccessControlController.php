@@ -8,8 +8,42 @@ use App\Core\BaseController;
  */
 class BrokenAccessControlController extends BaseController
 {
-    public function index()
+    protected $menu;
+
+    public function __construct()
     {
-        return $this->view('broken_access_control');
+        $this->menu = menu();
+    }
+
+    public function index($message = null)
+    {
+        $path = $_GET['url'];
+        return $this->view('layout', [
+            'page' => 'broken_access_control',
+            'menu' => $this->menu,
+            'path' => $path,
+            'message' => $message
+        ]);
+    }
+
+    public function loginForm()
+    {
+
+        return $this->view('testcase.broken_access_control.login');
+    }
+
+    public function login()
+    {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        // Kiểm tra thông tin đăng nhập
+        if ($username === 'admin' && $password === 'admin') {
+            // Đăng nhập thành công
+            setcookie('userid', 1, time() + 3600, '/');
+            return $this->index('Đăng nhập thành công');
+        } else {
+            return $this->index('Đăng nhập thất bại');
+        }
     }
 }

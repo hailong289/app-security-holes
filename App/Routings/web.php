@@ -26,3 +26,7 @@ $router->addRoute('GET', '/security-misconfiguration', [SecurityMisconfiguration
 $router->addRoute('GET', '/software-and-data-integrity-failures', [SoftwareAndDataIntegrityFailuresController::class, 'index']);
 $router->addRoute('GET', '/ssrf', [SSRFController::class, 'index']);
 $router->addRoute('GET', '/vulnerable-outdated-components', [VulnerableOutdatedComponentsController::class, 'index']);
+
+// test broken-access-control
+$router->addRoute('GET', '/test/login', [BrokenAccessControlController::class, 'loginForm']);
+$router->addRoute('POST', '/test/login', [BrokenAccessControlController::class, 'login']);
