@@ -24,6 +24,11 @@
         <div>
             <button type="submit" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Sign In</button>
         </div>
+        <?php if(!empty($message)): ?>
+            <div class="mt-4 p-4 rounded-md bg-<?= $status === 'success' ? 'green' : 'red' ?>-100 text-<?= $status === 'success' ? 'green' : 'red' ?>-700">
+                <strong class="font-semibold">Kết quả:</strong> <?=$message?>
+            </div>
+        <?php endif; ?>
     </div>
 </form>
 </body>

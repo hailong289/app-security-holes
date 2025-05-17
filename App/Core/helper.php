@@ -9,11 +9,168 @@ if (!function_exists('getBaseUrl')) {
 }
 
 if (!function_exists('url')) {
-     function url($path)
+     function url($path, $params = [])
      {
+         $queryString = http_build_query($params);
+         if (!empty($queryString)) {
+             $path .= '?' . $queryString;
+         }
          return getBaseUrl() . $path;
      }
 }
+
+if (!function_exists('redirect')) {
+    function redirect($path)
+    {
+        header("Location: $path");
+        exit();
+    }
+}
+
+if (!function_exists('dd')) {
+    function dd($data)
+    {
+        echo '<pre>';
+        print_r($data);
+        echo '</pre>';
+        die();
+    }
+}
+
+if (!function_exists('view')) {
+    function view($view, $data = [])
+    {
+        extract($data);
+        require_once APP_PATH . "/Views/$view.php";
+    }
+}
+
+if (!function_exists('viewPath')) {
+    function viewPath($view)
+    {
+        return APP_PATH . 'App/Views/' . str_replace('.', '/', $view) . '.php';
+    }
+}
+
+if (!function_exists('urlTest')) {
+    function urlTest($path, $params = [])
+    {
+        $queryString = http_build_query($params);
+        if (!empty($queryString)) {
+            $path .= '?' . $queryString;
+        }
+        return getBaseUrl() . '/test' . $path;
+    }
+}
+
+if (!function_exists('includeView')) {
+    function includeView($name)
+    {
+        $viewPath = viewPath($name);
+        require_once $viewPath;
+    }
+}
+
+if (!function_exists('session')) {
+    function session()
+    {
+        return new class {
+            public function set($key, $value)
+            {
+                $_SESSION[$key] = $value;
+            }
+
+            public function get($key)
+            {
+                if (isset($_SESSION['flash'][$key])) {
+                    $value = $_SESSION['flash'][$key];
+                    unset($_SESSION['flash'][$key]);
+                    return $value;
+                }
+                return $_SESSION[$key] ?? null;
+            }
+
+            public function has($key)
+            {
+                return isset($_SESSION[$key]);
+            }
+
+            public function remove($key)
+            {
+                unset($_SESSION[$key]);
+            }
+
+            public function all()
+            {
+                return $_SESSION;
+            }
+
+            public function flash($key, $value)
+            {
+                $_SESSION['flash'][$key] = $value;
+            }
+        };
+    }
+}
+
+if (!function_exists('cookie')) {
+    function cookie()
+    {
+        return new class {
+
+            public function set($name, $value, $expire = 3600)
+            {
+                setcookie($name, $value, time() + $expire, "/");
+            }
+
+            public function get($name)
+            {
+                return $_COOKIE[$name] ?? null;
+            }
+
+            public function has($name)
+            {
+                return isset($_COOKIE[$name]);
+            }
+
+            public function remove($name)
+            {
+                setcookie($name, '', time() - 3600, "/");
+            }
+
+            public function all()
+            {
+                return $_COOKIE;
+            }
+
+            public function flash($name, $value)
+            {
+                setcookie($name, $value, time() + 5, "/"); // thời gian tồn tại 5 giây
+            }
+        };
+    }
+}
+
+if (!function_exists('csrf_token')) {
+    function csrf_token()
+    {
+        if (session()->has('csrf_token')) {
+            return session()->get('csrf_token');
+        }
+        $token = bin2hex(random_bytes(32));
+        session()->set('csrf_token', $token);
+        return $token;
+    }
+}
+
+if (!function_exists('csrf_field')) {
+    function csrf_field()
+    {
+        return '<input type="hidden" name="csrf_token" value="' . csrf_token() . '">';
+    }
+}
+
+
 
 if (!function_exists('config')) {
     function config($key, $default = null){

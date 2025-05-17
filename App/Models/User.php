@@ -25,4 +25,11 @@ class User
        return $this->db->query("SELECT * FROM $this->tb")
            ->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    public function loginUser($username, $password)
+    {
+        $stmt = $this->db->query("SELECT * FROM $this->tb WHERE username = '$username' AND password = '$password'");
+        $stmt->execute();
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
+    }
 }

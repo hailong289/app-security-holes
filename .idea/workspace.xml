@@ -5,14 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58cb81a3-6598-4ad8-9e6a-d30a214298af" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/App/Views/pages/403.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/App/Views/pages/admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/App/Views/pages/admin_post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/AppHandle.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/AppHandle.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Controllers/BrokenAccessControlController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/BrokenAccessControlController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Core/helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Core/helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Models/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Models/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Routings/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Routings/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Views/broken_access_control.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/broken_access_control.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/testcase/broken_access_control/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/pages/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +38,13 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
       <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
       <path value="$PROJECT_DIR$/vendor/graham-campbell/result-type" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -43,23 +56,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.laravel-idea.search-composer-json": "true",
-    "git-widget-placeholder": "developer",
-    "last_opened_file_path": "C:/Docker/docker-nginx-php/server/source_php8.2/app-security-holes",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.laravel-idea.search-composer-json&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;developer&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Docker/docker-nginx-php/server/source_php8.2/app-security-holes&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Docker\docker-nginx-php\server\source_php8.2\app-security-holes" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Docker\docker-nginx-php\server\source_php8.2\app-security-holes\App\Views\pages" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -80,6 +96,8 @@
       <updated>1747405249155</updated>
       <workItem from="1747405250295" duration="873000" />
       <workItem from="1747406286974" duration="4955000" />
+      <workItem from="1747444134011" duration="3895000" />
+      <workItem from="1747464426707" duration="5248000" />
     </task>
     <servers />
   </component>

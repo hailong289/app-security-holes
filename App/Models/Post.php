@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Database\DB;
 
-class User
+class Post
 {
     public DB $db;
     protected $tb = 'posts';

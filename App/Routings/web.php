@@ -28,6 +28,7 @@ $router->addRoute('GET', '/ssrf', [SSRFController::class, 'index']);
 $router->addRoute('GET', '/vulnerable-outdated-components', [VulnerableOutdatedComponentsController::class, 'index']);
 
 // test broken-access-control
-$router->addRoute('GET', '/test/login', [BrokenAccessControlController::class, 'loginForm']);
-$router->addRoute('POST', '/test/login', [BrokenAccessControlController::class, 'login']);
- $router->addRoute('GET', '/test/admin', [BrokenAccessControlController::class, 'admin']);
+$router->addRoute('GET', '/login', [BrokenAccessControlController::class, 'loginForm']);
+$router->addRoute('POST', '/login', [BrokenAccessControlController::class, 'login']);
+$router->addRoute('GET', '/admin', [BrokenAccessControlController::class, 'admin']);
+$router->addRoute('GET', '/admin/posts', [BrokenAccessControlController::class, 'adminPost']);
