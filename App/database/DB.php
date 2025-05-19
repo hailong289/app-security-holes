@@ -1,6 +1,9 @@
 <?php
+
 namespace App\Database;
-class DB {
+
+class DB
+{
     private static $instance = null;
     private \PDO $connection;
     private $host;
@@ -45,5 +48,21 @@ class DB {
         $stmt = $this->connection->prepare($sql);
         $stmt->execute($params);
         return $stmt;
+    }
+    /**
+     * @param string|array $table
+     * @param array $columns
+     * @param string $where
+     * @param array $params
+     * @param int $fetch
+     * @return array
+     */
+    public function select($table, array $columns = ['*'], $where = '', array $params = [], $fetch = \PDO::FETCH_ASSOC)
+    {
+        $cols = implode(', ', $columns);
+        $tbl  = is_array($table) ? implode(', ', $table) : $table;
+        $sql  = "SELECT {$cols} FROM {$tbl}" . ($where !== '' ? " WHERE {$where}" : '');
+        
+        return $this->query($sql, $params)->fetchAll($fetch);
     }
 }

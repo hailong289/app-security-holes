@@ -32,3 +32,4 @@ $router->addRoute('GET', '/login', [BrokenAccessControlController::class, 'login
 $router->addRoute('POST', '/login', [BrokenAccessControlController::class, 'login']);
 $router->addRoute('GET', '/admin', [BrokenAccessControlController::class, 'admin']);
 $router->addRoute('GET', '/admin/posts', [BrokenAccessControlController::class, 'adminPost']);
+$router->addRoute('GET', '/post', [InjectionController::class, 'post']);

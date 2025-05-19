@@ -9,15 +9,16 @@ class Post
     public DB $db;
     protected $tb = 'posts';
     protected $field = [
-        'id',
+        'post_id',
+        'user_id',
         'title',
-        'summary',
-        'image',
         'content',
+        'status',
+        'views',
+        'likes',
+        'category',
         'created_at',
         'updated_at',
-        'created_by',// ref users
-        'start_num'//defaut 5 start
 
     ];
 
@@ -25,5 +26,13 @@ class Post
     {
         return $this->db->query("SELECT * FROM $this->tb")
             ->fetchAll(\PDO::FETCH_ASSOC);
+    }
+    public function getPostById($id)
+    {
+        return $this->db->select($this->tb, $this->field, 'status ="published" and post_id =' . $id );
+    }
+    public function getPostByPublishedAll()
+    {
+        return $this->db->select($this->tb, $this->field, 'status ="published"');
     }
 }

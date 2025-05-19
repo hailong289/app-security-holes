@@ -78,7 +78,7 @@
         </form>
         <!-- Kết quả giả lập -->
         <?php if(!empty($path)): ?>
-        <div class="mt-4 p-4 rounded-md flex items-center">
+        <div class="mt-4 p-4 rounded-md flex items-center">        
            <iframe src="<?=url($path, $_GET['flg_check_admin'] ? [
                 'flg_check_admin' => $_GET['flg_check_admin']
            ] : [])?>" class="w-full h-[500px]"></iframe>
