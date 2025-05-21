@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Core\BaseController;
 use App\Models\User;
 use App\Models\Post;
@@ -33,12 +34,18 @@ class BrokenAccessControlController extends BaseController
 
     public function loginForm()
     {
-
-        return $this->view('pages.login');
+        $url = '/login';
+        if (!empty($_GET['redirect'])) {
+            $url .= '?redirect=' . $_GET['redirect'];
+        }
+        return $this->view('pages.login', [
+            'url' => $url,
+        ]);
     }
 
     public function login()
     {
+
         $username = $_POST['username'];
         $password = $_POST['password'];
         $user = $this->users->loginUser($username, $password);
@@ -46,10 +53,11 @@ class BrokenAccessControlController extends BaseController
         if ($user) {
             // Đăng nhập thành công
             session()->set('user', $user);
-            return $this->view('testcase.message', [
-                'message' => 'Đăng nhập thành công',
-                'status' => 'success',
-            ]);
+            if (empty($_GET['redirect'])) {
+
+                return $this->redirect('/post');
+            }
+            return $this->redirect($_GET['redirect']);
         } else {
             return $this->view('pages.login', [
                 'message' => 'Đăng nhập thất bại',
@@ -64,9 +72,10 @@ class BrokenAccessControlController extends BaseController
             return $this->forbidden();
         }
         return $this->view('pages.admin', [
-            'message' => 'Bạn đã truy cập vào trang quản trị với quyền: '. ($this->isAdmin() ? 'Admin' : 'Người dùng'),
-            'status' => 'success',
+            'message' => 'Bạn đã truy cập vào trang quản trị với quyền: ' . ($this->isAdmin() ? 'Admin' : 'Người dùng'),
+            'status' => $this->isAdmin() ? 'success' : 'error',
             'users' => $this->users->getlist(),
+            'checkAdmin' => $this->isAdmin(),
         ]);
     }
 
@@ -79,6 +88,7 @@ class BrokenAccessControlController extends BaseController
             'message' => 'Bạn đã truy cập vào trang quản trị với quyền: ' . ($this->isAdmin() ? 'Admin' : 'Người dùng'),
             'status' => 'success',
             'posts' => $this->posts->getlist(),
+            'checkAdmin' => $this->isAdmin(),
         ]);
     }
 
@@ -91,5 +101,11 @@ class BrokenAccessControlController extends BaseController
     {
         $role = session()->get('user')['role'] ?? 0;
         return $role === 1;
+    }
+
+    public function logout()
+    {
+        session()->remove('user');
+        return $this->redirect('/login');
     }
 }

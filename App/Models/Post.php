@@ -11,6 +11,7 @@ class Post
     protected $field = [
         'post_id',
         'user_id',
+        'thumbnail',
         'title',
         'content',
         'status',
@@ -20,6 +21,7 @@ class Post
         'created_at',
         'updated_at',
 
+
     ];
 
     public function getlist()
@@ -27,12 +29,31 @@ class Post
         return $this->db->query("SELECT * FROM $this->tb")
             ->fetchAll(\PDO::FETCH_ASSOC);
     }
+    public function getPostByIdPublish($id)
+    {
+        return $this->db->select($this->tb, $this->field, 'status ="published" and post_id =' . $id);
+    }
     public function getPostById($id)
     {
-        return $this->db->select($this->tb, $this->field, 'status ="published" and post_id =' . $id );
+        return $this->db->select($this->tb, $this->field, 'post_id =' . $id);
     }
+
     public function getPostByPublishedAll()
     {
         return $this->db->select($this->tb, $this->field, 'status ="published"');
+    }
+
+    public function addPost($data)
+    {
+        return $this->db->insert($this->tb, $data);
+    }
+
+    public function updatePost($id, $data)
+    {
+        return $this->db->update($this->tb, $data, 'post_id = ' . $id);
+    }
+    public function deletePost($id)
+    {
+        return $this->db->delete($this->tb, 'post_id = ' . $id);
     }
 }

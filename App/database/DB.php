@@ -65,4 +65,28 @@ class DB
         
         return $this->query($sql, $params)->fetchAll($fetch);
     }
+    public function insert($table, array $data)
+    {
+        $columns = implode(', ', array_keys($data));
+        $placeholders = ':' . implode(', :', array_keys($data));
+        $sql = "INSERT INTO {$table} ({$columns}) VALUES ({$placeholders})";
+        $stmt = $this->query($sql, $data);
+        return $stmt->rowCount();
+    }
+    public function update($table, array $data, $where, array $params = [])
+    {
+        $set = '';
+        foreach ($data as $key => $value) {
+            $set .= "{$key} = :{$key}, ";
+            $params[$key] = $value;
+        }
+        $set = rtrim($set, ', ');
+        $sql = "UPDATE {$table} SET {$set} WHERE {$where}";
+        return $this->query($sql, $params)->rowCount();
+    }
+    public function delete($table, $where, array $params = [])
+    {
+        $sql = "DELETE FROM {$table} WHERE {$where}";
+        return $this->query($sql, $params)->rowCount();
+    }
 }

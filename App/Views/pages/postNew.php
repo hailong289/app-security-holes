@@ -10,12 +10,7 @@
 
 <body class="bg-gray-100 text-gray-800 font-sans">
     <!-- Header -->
-    <header class="bg-white shadow-md">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-blue-600">Tin tức công nghệ</h1>
-            <a href="/" class="text-sm text-gray-500 hover:text-blue-600">Trang chủ</a>
-        </div>
-    </header>
+    <?php require_once 'header_logined.php'; ?>
 
     <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
