@@ -4,20 +4,23 @@ namespace App\Models;
 
 use App\Database\DB;
 
-class User
+class Post
 {
     public DB $db;
     protected $tb = 'posts';
     protected $field = [
-        'id',
+        'post_id',
+        'user_id',
+        'thumbnail',
         'title',
-        'summary',
-        'image',
         'content',
+        'status',
+        'views',
+        'likes',
+        'category',
         'created_at',
         'updated_at',
-        'created_by',// ref users
-        'start_num'//defaut 5 start
+
 
     ];
 
@@ -25,5 +28,32 @@ class User
     {
         return $this->db->query("SELECT * FROM $this->tb")
             ->fetchAll(\PDO::FETCH_ASSOC);
+    }
+    public function getPostByIdPublish($id)
+    {
+        return $this->db->select($this->tb, $this->field, 'status ="published" and post_id =' . $id);
+    }
+    public function getPostById($id)
+    {
+        return $this->db->select($this->tb, $this->field, 'post_id =' . $id);
+    }
+
+    public function getPostByPublishedAll()
+    {
+        return $this->db->select($this->tb, $this->field, 'status ="published"');
+    }
+
+    public function addPost($data)
+    {
+        return $this->db->insert($this->tb, $data);
+    }
+
+    public function updatePost($id, $data)
+    {
+        return $this->db->update($this->tb, $data, 'post_id = ' . $id);
+    }
+    public function deletePost($id)
+    {
+        return $this->db->delete($this->tb, 'post_id = ' . $id);
     }
 }

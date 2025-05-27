@@ -1,4 +1,5 @@
 <?php
+session_start();
 define('APP_PATH', __DIR__ . '/');
 require 'vendor/autoload.php';
 $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__);

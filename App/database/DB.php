@@ -1,6 +1,9 @@
 <?php
+
 namespace App\Database;
-class DB {
+
+class DB
+{
     private static $instance = null;
     private \PDO $connection;
     private $host;
@@ -45,5 +48,45 @@ class DB {
         $stmt = $this->connection->prepare($sql);
         $stmt->execute($params);
         return $stmt;
+    }
+    /**
+     * @param string|array $table
+     * @param array $columns
+     * @param string $where
+     * @param array $params
+     * @param int $fetch
+     * @return array
+     */
+    public function select($table, array $columns = ['*'], $where = '', array $params = [], $fetch = \PDO::FETCH_ASSOC)
+    {
+        $cols = implode(', ', $columns);
+        $tbl  = is_array($table) ? implode(', ', $table) : $table;
+        $sql  = "SELECT {$cols} FROM {$tbl}" . ($where !== '' ? " WHERE {$where}" : '');
+        
+        return $this->query($sql, $params)->fetchAll($fetch);
+    }
+    public function insert($table, array $data)
+    {
+        $columns = implode(', ', array_keys($data));
+        $placeholders = ':' . implode(', :', array_keys($data));
+        $sql = "INSERT INTO {$table} ({$columns}) VALUES ({$placeholders})";
+        $stmt = $this->query($sql, $data);
+        return $stmt->rowCount();
+    }
+    public function update($table, array $data, $where, array $params = [])
+    {
+        $set = '';
+        foreach ($data as $key => $value) {
+            $set .= "{$key} = :{$key}, ";
+            $params[$key] = $value;
+        }
+        $set = rtrim($set, ', ');
+        $sql = "UPDATE {$table} SET {$set} WHERE {$where}";
+        return $this->query($sql, $params)->rowCount();
+    }
+    public function delete($table, $where, array $params = [])
+    {
+        $sql = "DELETE FROM {$table} WHERE {$where}";
+        return $this->query($sql, $params)->rowCount();
     }
 }

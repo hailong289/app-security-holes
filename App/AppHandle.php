@@ -46,8 +46,7 @@ class Appilaction {
                         break;
                 }
             } else {
-                http_response_code(404);
-                echo "404 Not Found";
+                echo $response;
             }
         } catch (\Throwable $e) {
             http_response_code(500);
