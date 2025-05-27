@@ -17,10 +17,8 @@ class Controller extends BaseController
 
     public function index()
     {
-//        $data = $this->user->getlist();
         return $this->view('index', [
-            'menu' =>  $this->menu,
-//            'data' => $data
+            'menu' =>  $this->menu
         ]);
     }
 
