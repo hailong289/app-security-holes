@@ -11,7 +11,10 @@ class InsecureDesignController extends BaseController
 {
     public function index()
     {
-        return $this->view('insecure_design');
+        return $this->view('layout', [
+            'page' => 'insecure_design',
+            'menu' => menu(),
+        ]);
     }
 
 }

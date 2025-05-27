@@ -11,7 +11,8 @@ use App\Controllers\{
     SoftwareAndDataIntegrityFailuresController,
     SSRFController,
     VulnerableOutdatedComponentsController,
-    AdminController
+    AdminController,
+    IdentificationAndAuthenticationFailuresController
 };
 
 require_once 'App/Core/Router.php';
@@ -30,7 +31,8 @@ $router->addRoute('GET', '/security-logging-and-monitoring-failures', [SecurityL
 $router->addRoute('GET', '/security-misconfiguration', [SecurityMisconfigurationController::class, 'index']);
 $router->addRoute('GET', '/software-and-data-integrity-failures', [SoftwareAndDataIntegrityFailuresController::class, 'index']);
 $router->addRoute('GET', '/ssrf', [SSRFController::class, 'index']);
-$router->addRoute('GET', '/vulnerable-outdated-components', [VulnerableOutdatedComponentsController::class, 'index']);
+$router->addRoute('GET', '/vulnerable-and-outdated-components', [VulnerableOutdatedComponentsController::class, 'index']);
+$router->addRoute('GET', '/identification-and-authentication-failures', [IdentificationAndAuthenticationFailuresController::class, 'index']);
 
 // test broken-access-control
 $router->addRoute('GET', '/login', [BrokenAccessControlController::class, 'loginForm']);
@@ -56,3 +58,8 @@ $router->addRoute('POST', '/admin/posts/add', [AdminController::class, 'addPostF
 $router->addRoute('GET', '/admin/posts/edit', [AdminController::class, 'editPost']);
 $router->addRoute('POST', '/admin/posts/edit', [AdminController::class, 'editPostForm']);
 $router->addRoute('POST', '/admin/posts/delete', [AdminController::class, 'deletePostForm']);
+
+
+// cyptographic failures
+$router->addRoute('GET', '/register', [CryptographicFailuresController::class, 'registerForm']);
+$router->addRoute('POST', '/register', [CryptographicFailuresController::class, 'register']);
