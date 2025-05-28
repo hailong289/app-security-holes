@@ -22,7 +22,7 @@
 
         <?php foreach ($posts as $post): ?>
             <div class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-                <img src="https://source.unsplash.com/600x300/?<?= urlencode($post['category']) ?>" alt="Thumbnail" class="w-full h-40 object-cover">
+                <img src="<?= getBaseUrl().'/'.$post['thumbnail'] ?>" alt="Thumbnail" class="w-full h-40 object-cover">
                 <div class="p-5">
                     <h2 class="text-xl font-semibold text-gray-800 mb-2 line-clamp-2">
                         <?= $post['title'] ?>
