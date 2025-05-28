@@ -46,6 +46,7 @@ includeView('header');
         </div>
 
     </div>
+    <?=var_dump(session()->get('user'))?>
 </div>
 <!-- Bình luận -->
 <div class="mt-10">
@@ -59,7 +60,7 @@ includeView('header');
                     <div class="text-sm text-gray-700 mb-1 flex justify-between items-center">
                         <span><strong>User #<?= $comment['user_id']; ?></strong> · 🕒 <?= $comment['created_at']; ?></span>
                         <?php if (!empty(session()->get('user')) && session()->get('user')['id'] == $comment['user_id']) : ?>
-                            <form action="/post/comment/del" method="POST" onsubmit="return confirm('Bạn chắc chắn muốn xóa bình luận này?');">
+                            <form action="/comment/del" method="POST" onsubmit="return confirm('Bạn chắc chắn muốn xóa bình luận này?');">
                                 <input type="hidden" name="comment_id" value="<?= $comment['comment_id']; ?>">
                                 <input type="hidden" name="user_id" value="<?= $comment['user_id']; ?>">
                                 <input type="hidden" name="post_id" value="<?= $post['post_id']; ?>">
@@ -77,9 +78,9 @@ includeView('header');
 
     <!-- Form bình luận mới -->
     <?php if (!empty(session()->get('user'))) : ?>
-        <form action="/post/comment" method="POST" class="space-y-4">
+        <form action="/comment" method="POST" class="space-y-4">
            <input type="hidden" name="post_id" value="<?= $post['post_id']; ?>">
-            <input type="hidden" name="user_id" value="<?= $post['user_id']; ?>">
+            <input type="hidden" name="user_id" value="<?= session()->get('user')['id']; ?>">
             <textarea name="content" rows="3" class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Viết bình luận..."></textarea>
             <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Gửi bình luận</button>
         </form>

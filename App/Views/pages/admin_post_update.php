@@ -19,7 +19,13 @@ $categories = [
     <title>✏️ Chỉnh sửa bài viết</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 min-h-screen p-6">
+<body >
+
+
+
+<?php require_once 'header_admin.php'; ?>
+<div class="bg-gray-100 min-h-screen p-6">
+
 <div class="max-w-4xl mx-auto bg-white p-8 shadow-md rounded-lg">
     <h1 class="text-2xl font-bold text-orange-500 mb-6">✏️ Chỉnh sửa bài viết</h1>
 
@@ -76,6 +82,7 @@ $categories = [
             💾 Cập nhật
         </button>
     </form>
+</div>
 </div>
 </body>
 </html>

@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58cb81a3-6598-4ad8-9e6a-d30a214298af" name="Changes" comment="" />
+    <list default="true" id="58cb81a3-6598-4ad8-9e6a-d30a214298af" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/BrokenAccessControlController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/BrokenAccessControlController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/InjectionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/InjectionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Core/helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Core/helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Routings/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Routings/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/injection.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/injection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/pages/admin_post.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/pages/admin_post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/pages/admin_post_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/pages/admin_post_add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/pages/admin_post_update.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/pages/admin_post_update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/pages/admin_user_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/pages/admin_user_add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/pages/admin_user_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/pages/admin_user_edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/pages/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/pages/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/pages/post.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/pages/post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/pages/postNew.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/pages/postNew.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/pages/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/pages/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/security_misconfiguration.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/security_misconfiguration.php" afterDir="false" />
+    </list>
     <list id="fb30f76b-e081-4844-ae21-372632f3392d" name="Changes by longd" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,8 +101,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-PS-251.25410.148" />
-        <option value="bundled-php-predefined-a98d8de5180a-c5828cf854d9-com.jetbrains.php.sharedIndexes-PS-251.25410.148" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PS-241.17011.119" />
+        <option value="bundled-php-predefined-ba97393d7c68-48a1a656d44e-com.jetbrains.php.sharedIndexes-PS-241.17011.119" />
       </set>
     </attachedChunks>
   </component>
@@ -107,6 +125,7 @@
       <workItem from="1747843912579" duration="71000" />
       <workItem from="1747844067947" duration="12981000" />
       <workItem from="1747857368394" duration="125000" />
+      <workItem from="1748359137969" duration="3176000" />
     </task>
     <servers />
   </component>

@@ -11,6 +11,9 @@ class VulnerableOutdatedComponentsController extends BaseController
 {
     public function index()
     {
-        return $this->view('vulnerable_outdated_components');
+        return $this->view('layout', [
+            'page' => 'vulnerable_outdated_components',
+            'menu' => menu(),
+        ]);
     }
 }

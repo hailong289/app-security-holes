@@ -24,17 +24,24 @@ class AdminController extends BaseController
 
     public function addUser()
     {
-        if ($this->isAdmin()) {
-            return $this->view('pages.admin_user_add', [
+        return $this->view('pages.admin_user_add', [
                 'page' => 'add_user',
+                'message' => 'Bạn đã truy cập vào trang quản trị với quyền: ' . ($this->isAdmin() ? 'Admin' : 'Người dùng'),
 
             ]);
-        } else {
-            return $this->view('pages.404', [
-                'menu' => $this->menu,
-                'message' => 'Bạn không có quyền truy cập vào trang này.',
-            ]);
-        }
+
+//        if ($this->isAdmin()) {
+//            return $this->view('pages.admin_user_add', [
+//                'page' => 'add_user',
+//                'message' => 'Bạn đã truy cập vào trang quản trị với quyền: ' . ($this->isAdmin() ? 'Admin' : 'Người dùng'),
+//
+//            ]);
+//        } else {
+//            return $this->view('pages.404', [
+//                'menu' => $this->menu,
+//                'message' => 'Bạn không có quyền truy cập vào trang này.',
+//            ]);
+//        }
     }
 
     public function addUserForm()
@@ -58,18 +65,25 @@ class AdminController extends BaseController
     {
         $userId = $_GET['id'];
         $user = $this->users->getUserById($userId);
-        if ($this->isAdmin()) {
-            return $this->view('pages.admin_user_edit', [
-                'page' => 'edit_user',
-                'user' => $user[0],
+        return $this->view('pages.admin_user_edit', [
+            'page' => 'edit_user',
+            'user' => $user[0],
+            'message' => 'Bạn đã truy cập vào trang quản trị với quyền: ' . ($this->isAdmin() ? 'Admin' : 'Người dùng'),
 
-            ]);
-        } else {
-            return $this->view('pages.404', [
-                'menu' => $this->menu,
-                'message' => 'Bạn không có quyền truy cập vào trang này.',
-            ]);
-        }
+        ]);
+//        if ($this->isAdmin()) {
+//            return $this->view('pages.admin_user_edit', [
+//                'page' => 'edit_user',
+//                'user' => $user[0],
+//                'message' => 'Bạn đã truy cập vào trang quản trị với quyền: ' . ($this->isAdmin() ? 'Admin' : 'Người dùng'),
+//
+//            ]);
+//        } else {
+//            return $this->view('pages.404', [
+//                'menu' => $this->menu,
+//                'message' => 'Bạn không có quyền truy cập vào trang này.',
+//            ]);
+//        }
     }
 
     public function editUserForm()
@@ -117,18 +131,25 @@ class AdminController extends BaseController
             'Thiết bị phần cứng',
             'Khởi nghiệp công nghệ'
         ];
-        if ($this->isAdmin()) {
-            return $this->view('pages.admin_post_add', [
-                'page' => 'add_post',
-                'categories' => $categories,
+        return $this->view('pages.admin_post_add', [
+            'page' => 'add_post',
+            'categories' => $categories,
+            'message' => 'Bạn đã truy cập vào trang quản trị với quyền: ' . ($this->isAdmin() ? 'Admin' : 'Người dùng'),
 
-            ]);
-        } else {
-            return $this->view('pages.404', [
-                'menu' => $this->menu,
-                'message' => 'Bạn không có quyền truy cập vào trang này.',
-            ]);
-        }
+        ]);
+//        if ($this->isAdmin()) {
+//            return $this->view('pages.admin_post_add', [
+//                'page' => 'add_post',
+//                'categories' => $categories,
+//                'message' => 'Bạn đã truy cập vào trang quản trị với quyền: ' . ($this->isAdmin() ? 'Admin' : 'Người dùng'),
+//
+//            ]);
+//        } else {
+//            return $this->view('pages.404', [
+//                'menu' => $this->menu,
+//                'message' => 'Bạn không có quyền truy cập vào trang này.',
+//            ]);
+//        }
     }
 
     public function addPostForm()
@@ -167,19 +188,27 @@ class AdminController extends BaseController
             'Thiết bị phần cứng',
             'Khởi nghiệp công nghệ'
         ];
-        if ($this->isAdmin()) {
-            return $this->view('pages.admin_post_update', [
-                'page' => 'edit_post',
-                'post' => $post[0],
-                'categories' => $categories,
+        return $this->view('pages.admin_post_update', [
+            'page' => 'edit_post',
+            'post' => $post[0],
+            'categories' => $categories,
+            'message' => 'Bạn đã truy cập vào trang quản trị với quyền: ' . ($this->isAdmin() ? 'Admin' : 'Người dùng'),
 
-            ]);
-        } else {
-            return $this->view('pages.404', [
-                'menu' => $this->menu,
-                'message' => 'Bạn không có quyền truy cập vào trang này.',
-            ]);
-        }
+        ]);
+//        if ($this->isAdmin()) {
+//            return $this->view('pages.admin_post_update', [
+//                'page' => 'edit_post',
+//                'post' => $post[0],
+//                'categories' => $categories,
+//                'message' => 'Bạn đã truy cập vào trang quản trị với quyền: ' . ($this->isAdmin() ? 'Admin' : 'Người dùng'),
+//
+//            ]);
+//        } else {
+//            return $this->view('pages.404', [
+//                'menu' => $this->menu,
+//                'message' => 'Bạn không có quyền truy cập vào trang này.',
+//            ]);
+//        }
     }
 
     public function editPostForm()

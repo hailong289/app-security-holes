@@ -69,11 +69,12 @@ class InjectionController extends BaseController
         $postId = $_POST['post_id'];
         $userId = $_POST['user_id'];
         $content = $_POST['content'];
+//        echo $content;
         if (empty($postId) || empty($userId) || empty($content)) {
-            return $this->redirect('/post?id=' . $postId);
+            return $this->redirect('/?id=' . $postId);
         }
         $this->comment->addCommentByPostId($postId, $userId, $content);
-        return $this->redirect('/post?id=' . $postId);
+        return $this->redirect('/?id=' . $postId);
     }
 
     public function commentDelete()
@@ -82,10 +83,10 @@ class InjectionController extends BaseController
         $postId = $_POST['post_id'];
         $userId = $_POST['user_id'];
         if (empty($commentId) || empty($postId)) {
-            return $this->redirect('/post?id=' . $postId);
+            return $this->redirect('?id=' . $postId);
         }
         $this->comment->deleteCommentById($commentId, $postId, $userId);
-        return $this->redirect('/post?id=' . $postId);
+        return $this->redirect('/?id=' . $postId);
     }
 
 }

@@ -10,11 +10,13 @@ class IdentificationAndAuthenticationFailuresController extends BaseController
 {
     public function __construct()
     {
-        parent::__construct();
     }
 
     public function index()
     {
-        return $this->view('identification_and_authentication_failures');
+        return $this->view('layout', [
+            'page' => 'identification_and_authentication_failures',
+            'menu' => menu(),
+        ]);
     }
 }

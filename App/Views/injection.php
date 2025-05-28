@@ -20,52 +20,52 @@ Password: anything</code></pre>
     </ul>
 </section>
 
+<!--<section class="mb-10">-->
+<!--    <h2 class="text-2xl font-semibold mb-2">🧪 2. Test: Login Form</h2>-->
+<!--    <div class="overflow-auto">-->
+<!--        <table class="table-auto w-full border border-gray-300 text-sm">-->
+<!--            <thead class="bg-blue-100">-->
+<!--                <tr>-->
+<!--                    <th class="border px-4 py-2 text-left">Step</th>-->
+<!--                    <th class="border px-4 py-2 text-left">Action</th>-->
+<!--                    <th class="border px-4 py-2 text-left">Expected Result</th>-->
+<!--                    <th class="border px-4 py-2 text-left">Actual Result</th>-->
+<!--                </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--                <tr>-->
+<!--                    <td class="border px-4 py-2">1</td>-->
+<!--                    <td class="border px-4 py-2">Visit /login</td>-->
+<!--                    <td class="border px-4 py-2">Login form appears</td>-->
+<!--                    <td class="border px-4 py-2">✅</td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td class="border px-4 py-2">2</td>-->
+<!--                    <td class="border px-4 py-2">Input: <code>' OR '1'='1</code> / any password</td>-->
+<!--                    <td class="border px-4 py-2">Login bypasses</td>-->
+<!--                    <td class="border px-4 py-2">❓</td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td class="border px-4 py-2">3</td>-->
+<!--                    <td class="border px-4 py-2">Input: <code>admin' --</code></td>-->
+<!--                    <td class="border px-4 py-2">Login bypasses</td>-->
+<!--                    <td class="border px-4 py-2">❓</td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td class="border px-4 py-2">4</td>-->
+<!--                    <td class="border px-4 py-2">Check for SQL error messages</td>-->
+<!--                    <td class="border px-4 py-2">Errors shown</td>-->
+<!--                    <td class="border px-4 py-2">❓</td>-->
+<!--                </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
+<!--    </div>-->
+<!---->
+<!--</section>-->
+
+
 <section class="mb-10">
-    <h2 class="text-2xl font-semibold mb-2">🧪 2. Test: Login Form</h2>
-    <div class="overflow-auto">
-        <table class="table-auto w-full border border-gray-300 text-sm">
-            <thead class="bg-blue-100">
-                <tr>
-                    <th class="border px-4 py-2 text-left">Step</th>
-                    <th class="border px-4 py-2 text-left">Action</th>
-                    <th class="border px-4 py-2 text-left">Expected Result</th>
-                    <th class="border px-4 py-2 text-left">Actual Result</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="border px-4 py-2">1</td>
-                    <td class="border px-4 py-2">Visit /login</td>
-                    <td class="border px-4 py-2">Login form appears</td>
-                    <td class="border px-4 py-2">✅</td>
-                </tr>
-                <tr>
-                    <td class="border px-4 py-2">2</td>
-                    <td class="border px-4 py-2">Input: <code>' OR '1'='1</code> / any password</td>
-                    <td class="border px-4 py-2">Login bypasses</td>
-                    <td class="border px-4 py-2">❓</td>
-                </tr>
-                <tr>
-                    <td class="border px-4 py-2">3</td>
-                    <td class="border px-4 py-2">Input: <code>admin' --</code></td>
-                    <td class="border px-4 py-2">Login bypasses</td>
-                    <td class="border px-4 py-2">❓</td>
-                </tr>
-                <tr>
-                    <td class="border px-4 py-2">4</td>
-                    <td class="border px-4 py-2">Check for SQL error messages</td>
-                    <td class="border px-4 py-2">Errors shown</td>
-                    <td class="border px-4 py-2">❓</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-</section>
-
-
-<section class="mb-10">
-    <h2 class="text-2xl font-semibold mb-2">🧪 3. Test: Admin Post Queries</h2>
+    <h2 class="text-2xl font-semibold mb-2">🧪 2. Test: Admin Post Queries</h2>
     <div class="overflow-auto">
         <table class="table-auto w-full border border-gray-300 text-sm">
             <thead class="bg-blue-100">

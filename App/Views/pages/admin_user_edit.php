@@ -5,7 +5,9 @@
     <title>Sửa người dùng</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+<body >
+<?php require_once 'header_admin.php'; ?>
+<div class="mt-2 bg-gray-100 min-h-screen flex items-center justify-center">
 
 <div class="bg-white p-8 rounded shadow-md w-full max-w-xl">
     <h1 class="text-2xl font-bold text-blue-600 mb-6">✏️ Cập nhật người dùng</h1>
@@ -69,6 +71,7 @@
             ✅ Lưu thay đổi
         </button>
     </form>
+</div>
 </div>
 
 </body>

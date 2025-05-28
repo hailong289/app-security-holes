@@ -55,7 +55,7 @@ class BrokenAccessControlController extends BaseController
             session()->set('user', $user);
             if (empty($_GET['redirect'])) {
 
-                return $this->redirect('/post');
+                return $this->redirect('/');
             }
             return $this->redirect($_GET['redirect']);
         } else {

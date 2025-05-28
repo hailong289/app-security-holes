@@ -8,7 +8,7 @@
             <div class="flex items-center justify-between mb-6">
                 <h3 class="text-xl font-semibold text-gray-800">📋 Danh sách bài viết</h3>
                 <?php if ($checkAdmin): ?>
-                    <a href="/admin/post/add"
+                    <a href="/admin/posts/add"
                        class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
                         ➕ Thêm bài viết
                     </a>
