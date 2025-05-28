@@ -190,7 +190,7 @@ if (!function_exists('config')) {
 if (!function_exists('activeRoute')) {
     function activeRoute($path)
     {
-        return $_SERVER['HTTP_REFERER'] === $path;
+        return str_contains(getBaseUrl().$_SERVER['REQUEST_URI'], $path);
     }
 }
 

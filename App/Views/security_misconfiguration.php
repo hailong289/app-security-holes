@@ -1,4 +1,4 @@
-<h1 class="text-3xl font-bold text-center mb-6">A06:2021 - Security Misconfiguration</h1>
+<h1 class="text-3xl font-bold mb-6">A05:2021 - Security Misconfiguration</h1>
 <p class="mb-8">Dưới đây là ví dụ về cấu hình không an toàn dẫn đến các lỗ hổng bảo mật.</p>
 <!-- Phần giải thích lỗi -->
 <h2 class="text-xl font-semibold text-gray-800 mb-2">Các Lỗi Cấu Hình Bảo Mật Sai Trong Ví Dụ</h2>

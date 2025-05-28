@@ -1,4 +1,4 @@
-<h1 class="text-3xl font-bold mb-6">A10:2021 - Identification and Authentication Failures</h1>
+<h1 class="text-3xl font-bold mb-6">A07:2021 - Identification and Authentication Failures</h1>
 
 <p class="mb-8">Dưới đây là ví dụ về hệ thống xác thực yếu, dễ bị tấn công bởi các kỹ thuật như đoán mật khẩu hoặc đánh cắp phiên.</p>
 

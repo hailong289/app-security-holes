@@ -30,7 +30,7 @@ $router->addRoute('GET', '/test/injection', [InjectionController::class, 'index'
 $router->addRoute('GET', '/test/security-logging-and-monitoring-failures', [SecurityLoggingAndMonitoringFailuresController::class, 'index']);
 $router->addRoute('GET', '/test/security-misconfiguration', [SecurityMisconfigurationController::class, 'index']);
 $router->addRoute('GET', '/test/software-and-data-integrity-failures', [SoftwareAndDataIntegrityFailuresController::class, 'index']);
-$router->addRoute('GET', '/test/ssrf', [SSRFController::class, 'index']);
+$router->addRoute('GET', '/test/server-side-request-forgery', [SSRFController::class, 'index']);
 $router->addRoute('GET', '/test/vulnerable-and-outdated-components', [VulnerableOutdatedComponentsController::class, 'index']);
 $router->addRoute('GET', '/test/identification-and-authentication-failures', [IdentificationAndAuthenticationFailuresController::class, 'index']);
 
@@ -64,3 +64,5 @@ $router->addRoute('POST', '/admin/posts/delete', [AdminController::class, 'delet
 // cyptographic failures
 $router->addRoute('GET', '/register', [CryptographicFailuresController::class, 'registerForm']);
 $router->addRoute('POST', '/register', [CryptographicFailuresController::class, 'register']);
+
+$router->addRoute('GET', '/downloadFile', [SoftwareAndDataIntegrityFailuresController::class, 'downloadSoftware']);

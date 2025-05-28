@@ -1,4 +1,4 @@
-<h1 class="text-2xl font-bold mb-4">A05:2021 - Insecure Design</h1>
+<h1 class="text-2xl font-bold mb-4">A04:2021 - Insecure Design</h1>
 <p class="mb-4">Dưới đây là ví dụ về thiết kế hệ thống thiếu bảo mật từ đầu, dẫn đến lỗ hổng dễ bị khai thác.</p>
 
 <!-- Phần giải thích lỗi -->

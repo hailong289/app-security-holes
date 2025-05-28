@@ -1,4 +1,4 @@
-<h1 class="text-3xl font-bold mb-6">A09:2021 - Vulnerable and Outdated Components
+<h1 class="text-3xl font-bold mb-6">A06:2021 - Vulnerable and Outdated Components
 </h1>
 <p class="mb-8">Dưới đây là ví dụ về việc sử dụng thư viện hoặc phần mềm lỗi thời, dễ bị khai thác bởi lỗ hổng đã biết.</p>
 

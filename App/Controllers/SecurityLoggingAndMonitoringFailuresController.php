@@ -11,6 +11,9 @@ class SecurityLoggingAndMonitoringFailuresController extends BaseController
 {
     public function index()
     {
-        return $this->view('security_logging_and_monitoring_failures');
+        return $this->view('layout', [
+            'page' => 'security_logging_and_monitoring_failures',
+            'menu' => menu(),
+        ]);
     }
 }
