@@ -46,7 +46,7 @@ includeView('header');
         </div>
 
     </div>
-
+    <?=var_dump(session()->get('user'))?>
 </div>
 <!-- Bình luận -->
 <div class="mt-10">
