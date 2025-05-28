@@ -5,19 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58cb81a3-6598-4ad8-9e6a-d30a214298af" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/App/Views/pages/register.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/CryptographicFailuresController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/CryptographicFailuresController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/InsecureDesignController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/InsecureDesignController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/SecurityMisconfigurationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/SecurityMisconfigurationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/VulnerableOutdatedComponentsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/VulnerableOutdatedComponentsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/BrokenAccessControlController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/BrokenAccessControlController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/InjectionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/InjectionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Core/helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Core/helper.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Routings/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Routings/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/cryptographic_failures.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/cryptographic_failures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/identification_and_authentication_failures.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/identification_and_authentication_failures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/insecure_design.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/insecure_design.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/injection.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/injection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/pages/admin_post.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/pages/admin_post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/pages/admin_post_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/pages/admin_post_add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/pages/admin_post_update.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/pages/admin_post_update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/pages/admin_user_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/pages/admin_user_add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/pages/admin_user_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/pages/admin_user_edit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Views/pages/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/pages/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/pages/post.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/pages/post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/pages/postNew.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/pages/postNew.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/pages/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/pages/register.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Views/security_misconfiguration.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/security_misconfiguration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/vulnerable_outdated_components.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/vulnerable_outdated_components.php" afterDir="false" />
     </list>
     <list id="fb30f76b-e081-4844-ae21-372632f3392d" name="Changes by longd" comment="" />
     <option name="SHOW_DIALOG" value="false" />

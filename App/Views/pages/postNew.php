@@ -34,7 +34,7 @@
                     <div class="flex justify-between items-center text-sm text-gray-500">
                         <span>👁 <?= $post['views'] ?></span>
                         <span>❤️ <?= $post['likes'] ?></span>
-                        <a href="/post?id=<?= $post['post_id'] ?>" class="text-blue-600 hover:underline font-medium ml-auto">Xem chi tiết →</a>
+                        <a href="?id=<?= $post['post_id'] ?>" class="text-blue-600 hover:underline font-medium ml-auto">Xem chi tiết →</a>
                     </div>
                 </div>
             </div>

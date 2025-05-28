@@ -11,7 +11,7 @@
 <!-- Hướng dẫn kiểm tra -->
 <h2 class="text-xl font-semibold text-yellow-800 mb-4">Cách Kiểm Tra Lỗi</h2>
 <p class="text-gray-700">1. Đăng nhập với thông tin mặc định (username: 'admin', password: 'admin').</p>
-<p class="text-gray-700">2. Thử truy cập trực tiếp <a href="#" class="text-blue-500 hover:underline"><?=getBaseUrl()?>/admin</a> mà không cần đăng nhập.</p>
+<p class="text-gray-700">2. Thử truy cập trực tiếp <a href="<?=getBaseUrl()?>/admin" class="text-blue-500 hover:underline"><?=getBaseUrl()?>/admin</a> mà không cần đăng nhập.</p>
 <p class="text-gray-700">3. Kiểm tra trang lỗi (VD: 404, 500) để xem có lộ thông tin server không.</p>
 <p class="text-gray-700">4. Cách khắc phục: Thay đổi thông tin mặc định, ẩn trang admin, và cập nhật phần mềm thường xuyên.</p>
 
