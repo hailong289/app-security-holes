@@ -36,8 +36,12 @@ class DB
     public function connect()
     {
         try {
-            $this->connection = new \PDO("mysql:host={$this->host};dbname={$this->dbName}", $this->username, $this->password);
-            $this->connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+            $options = [
+                \PDO::ATTR_ERRMODE            => \PDO::ERRMODE_EXCEPTION,      // Báo lỗi chi tiết
+                \PDO::ATTR_EMULATE_PREPARES   => false,                       // Dùng prepare thật của MySQL
+                \PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci", // Đặt charset và collation khi kết nối
+            ];
+            $this->connection = new \PDO("mysql:host={$this->host};dbname={$this->dbName}", $this->username, $this->password, $options);
         } catch (\PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
