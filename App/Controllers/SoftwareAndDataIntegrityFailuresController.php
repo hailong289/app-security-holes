@@ -11,6 +11,9 @@ class SoftwareAndDataIntegrityFailuresController extends BaseController
 {
     public function index()
     {
-        return $this->view('software_and_data_integrity_failures');
+        return $this->view('layout', [
+            'page' => 'software_and_data_integrity_failures',
+            'menu' => menu(),
+        ]);
     }
 }

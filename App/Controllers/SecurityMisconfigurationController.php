@@ -11,6 +11,9 @@ class SecurityMisconfigurationController extends BaseController
 {
     public function index()
     {
-        return $this->view('security_misconfiguration');
+        return $this->view('layout', [
+            'page' => 'security_misconfiguration',
+            'menu' => menu(),
+        ]);
     }
 }

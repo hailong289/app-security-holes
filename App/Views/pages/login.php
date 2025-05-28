@@ -12,24 +12,24 @@
       method="post"
 >
 
-    <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Login</h2>
+    <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Đăng nhập</h2>
     <div>
         <div class="mb-4">
             <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
             <input type="text" id="username" name="username"
                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                   placeholder="Enter your username" required>
+                   placeholder="Nhập tên đăng nhập" required>
         </div>
         <div class="mb-6">
             <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
             <input type="password" id="password" name="password"
                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                   placeholder="Enter your password" required>
+                   placeholder="Nhập mật khẩu" required>
         </div>
         <div>
             <button type="submit"
                     class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                Sign In
+                Đăng nhập
             </button>
         </div>
         <?php if (!empty($message)): ?>
