@@ -22,7 +22,7 @@ use App\Core\Router;
 $router = Router::getInstance();
 
 // Thêm route cho ứng dụng
-$router->addRoute('GET', '/test/', [Controller::class, 'index']);
+$router->addRoute('GET', '/test', [Controller::class, 'index']);
 $router->addRoute('GET', '/test/broken-access-control', [BrokenAccessControlController::class, 'index']);
 $router->addRoute('GET', '/test/cryptographic-failures', [CryptographicFailuresController::class, 'index']);
 $router->addRoute('GET', '/test/insecure-design', [InsecureDesignController::class, 'index']);

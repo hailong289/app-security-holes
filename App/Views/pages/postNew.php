@@ -20,10 +20,10 @@
                 <img src="https://source.unsplash.com/600x300/?<?= urlencode($post['category']) ?>" alt="Thumbnail" class="w-full h-40 object-cover">
                 <div class="p-5">
                     <h2 class="text-xl font-semibold text-gray-800 mb-2 line-clamp-2">
-                        <?= htmlspecialchars($post['title']) ?>
+                        <?= $post['title'] ?>
                     </h2>
                     <p class="text-gray-600 text-sm line-clamp-3 mb-4">
-                        <?= htmlspecialchars($post['content']) ?>
+                        <?= $post['content'] ?>
                     </p>
 
                     <div class="text-xs text-gray-500 flex justify-between items-center mb-3">
