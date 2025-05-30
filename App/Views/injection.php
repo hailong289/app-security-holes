@@ -129,11 +129,11 @@ Password: anything</code></pre>
     <?php endif; ?>
 </section>
 <section>
-    <h2 class="text-2xl font-semibold mb-2">🛡️ Fix Recommendations</h2>
+    <h2 class="text-2xl font-semibold mb-2">🛡️ Khuyến nghị khắc phục</h2>
     <ul class="list-disc list-inside">
-        <li>Use prepared statements / parameterized queries</li>
-        <li>Escape and validate all user input</li>
-        <li>Use ORM frameworks (e.g., Sequelize, Eloquent)</li>
-        <li>Least privilege DB user access</li>
+        <li>Sử dụng truy vấn chuẩn hóa (prepared statements) hoặc truy vấn tham số hóa (parameterized queries)</li>
+        <li>Escape và kiểm tra hợp lệ tất cả dữ liệu đầu vào từ người dùng</li>
+        <li>Sử dụng các framework ORM (ví dụ: Sequelize, Eloquent)</li>
+        <li>Thiết lập quyền truy cập cơ sở dữ liệu theo nguyên tắc tối thiểu (least privilege)</li>
     </ul>
 </section>

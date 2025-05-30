@@ -18,8 +18,8 @@
 
 
 <div class="mt-6 w-4/12">
-    <form action="<?=url('/test/software-and-data-integrity-failures')?>" method="get">
-        <input type="hidden" name="download" value="1">
+    <form action="<?=url('/downloadFile')?>" method="get">
+        <input type="hidden" name="file" value="putty.exe">
         <button type="submit"
                 class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
             Tải xuống file
