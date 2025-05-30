@@ -27,8 +27,8 @@ class SoftwareAndDataIntegrityFailuresController extends BaseController
     }
 
     public function downloadSoftware() {
-        if (isset($_GET['download_file'])) {
-            $filePath = APP_PATH . 'public/putty.exe';
+        if (isset($_GET['file'])) {
+            $filePath = APP_PATH . 'public/'.$_GET['file'];
             if (!file_exists($filePath)) {
                 http_response_code(404);
                 die('Error: File not found.');
@@ -36,7 +36,7 @@ class SoftwareAndDataIntegrityFailuresController extends BaseController
 
             // Set headers for file download
             header('Content-Type: application/octet-stream');
-            header('Content-Disposition: attachment; filename="putty.exe"');
+            header('Content-Disposition: attachment; filename="'.$_GET['download_file'].'"');
             header('Content-Length: ' . filesize($filePath));
             header('Cache-Control: no-cache');
 
