@@ -19,6 +19,7 @@
 
 <div class="mt-6 w-4/12">
     <form action="<?=url('/downloadFile')?>" method="get">
+        <span> vi dụ: ../App/Core/helper.php</span>
         <label for="file" class="block text-sm font-medium text-gray-700 mb-2">Nhập tên file để tải xuống:</label>
         <input type="text" name="file" value="putty.exe">
         <button type="submit"
