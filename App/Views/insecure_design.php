@@ -12,7 +12,7 @@
 <h2 class="text-xl font-semibold mb-2">Cách Kiểm Tra Lỗi</h2>
 <div class="mb-4">
     <p class="text-gray-700">1. Đăng ký với tên người dùng bất kỳ (ví dụ: "testuser").</p>
-    <p class="text-gray-700">2. Thử truy cập trực tiếp vào <a href="#" class="text-blue-500 hover:underline"><?=getBaseUrl()?>/admin</a> mà không đăng nhập (nếu có).</p>
+    <p class="text-gray-700">2. Thử truy cập trực tiếp vào <a href="<?=getBaseUrl()?>/admin/user" class="text-blue-500 hover:underline"><?=getBaseUrl()?>/admin/user</a> mà không đăng nhập (nếu có).</p>
     <p class="text-gray-700">3. Nhập dữ liệu dài bất thường (VD: 1000 ký tự) vào trường username để kiểm tra giới hạn.</p>
     <p class="text-gray-700">4. Cách khắc phục: Thêm kiểm tra quyền truy cập, giới hạn đầu vào, và xác thực vai trò người dùng.</p>
 </div>
@@ -22,7 +22,7 @@
     <div class="bg-white p-6 rounded-md shadow-md">
         <!-- Kết quả giả lập -->
         <div class="mt-4 p-4 rounded-md flex items-center">
-            <iframe src="<?=url('/register')?>" class="w-full h-[500px]"></iframe>
+            <iframe src="<?=getBaseUrl()?>/admin/user" class="w-full h-[500px]"></iframe>
         </div>
     </div>
 </div>

@@ -27,8 +27,10 @@ class SoftwareAndDataIntegrityFailuresController extends BaseController
     }
 
     public function downloadSoftware() {
+
         if (isset($_GET['file'])) {
             $filePath = APP_PATH . 'public/'.$_GET['file'];
+//            echo $filePath;
             if (!file_exists($filePath)) {
                 http_response_code(404);
                 die('Error: File not found.');
