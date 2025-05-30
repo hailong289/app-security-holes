@@ -67,7 +67,7 @@ includeView('header');
                             </form>
                         <?php endif; ?>
                     </div>
-                    <p class="text-gray-800"><?= htmlspecialchars($comment['content']); ?></p>
+                    <p class="text-gray-800"><?=$comment['content']; ?></p>
                 </div>
             <?php endforeach; ?>
         <?php else : ?>
@@ -84,7 +84,7 @@ includeView('header');
             <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Gửi bình luận</button>
         </form>
     <?php else : ?>
-        <p class="text-gray-600 italic">Vui lòng <a href="/login?redirect=/post?id=<?= $post['post_id']; ?>" class="text-blue-500 hover:underline">đăng nhập</a> để bình luận.</p>
+        <p class="text-gray-600 italic">Vui lòng <a href="/login?redirect=/?id=<?= $post['post_id']; ?>" class="text-blue-500 hover:underline">đăng nhập</a> để bình luận.</p>
     <?php endif; ?>
 </div>
 
