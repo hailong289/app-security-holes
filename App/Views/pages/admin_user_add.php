@@ -40,7 +40,7 @@
 
             <div>
                 <label class="block font-medium mb-1">Ngày sinh</label>
-                <input type="date" name="date_of_birth" class="w-full p-2 border rounded">
+                <input type="date" name="date_of_birth" value="<?=date('Y-m-d'); ?>" class="w-full p-2 border rounded" required>
             </div>
 
             <div>
