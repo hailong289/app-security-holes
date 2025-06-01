@@ -20,7 +20,7 @@
     <div class="bg-white p-6 rounded-md shadow-md">
         <!-- Kết quả giả lập -->
         <div class="mt-4 p-4 rounded-md flex items-center">
-            <iframe src="<?=url('/login')?>" class="w-full h-[500px]"></iframe>
+            <iframe src="<?=getBaseUrl()?>/admin" class="w-full h-[500px]"></iframe>
         </div>
     </div>
 </div>
