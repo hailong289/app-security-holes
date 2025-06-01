@@ -16,9 +16,7 @@
     <p class="text-gray-700">1. Thử đăng nhập nhiều lần với mật khẩu sai (VD: username 'testuser', password 'wrongpass').</p>
     <p class="text-gray-700">2. Kiểm tra xem hệ thống có ghi lại các lần đăng nhập thất bại không (thường không có).</p>
     <p class="text-gray-700">3. Kiểm tra khi dùng các tool để spams quá trình đăng ký liên tục trong khoảng thời gian ví dụ trong 1 phút thì không có thông báo, hạn chế hoặc chặn ip .</p>
-
-    <p class="text-gray-700">4. Thử tấn công brute force (dùng công cụ như Hydra) và xem có cảnh báo nào không.</p>
-    <p class="text-gray-700">5. Cách khắc phục: Ghi lại tất cả đăng nhập thất bại, thêm cảnh báo, và lưu trữ nhật ký đầy đủ (IP, thời gian, hành động).</p>
+    <p class="text-gray-700">4. Cách khắc phục: Ghi lại tất cả đăng nhập thất bại, thêm cảnh báo, và lưu trữ nhật ký đầy đủ (IP, thời gian, hành động).</p>
 </div>
 <div class="mt-6">
     <h3 class="text-lg font-semibold mb-4 text-center">TEST</h3>
