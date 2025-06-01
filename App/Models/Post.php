@@ -35,6 +35,7 @@ class Post
     }
     public function getPostById($id)
     {
+        echo 'id: ' . $id;
         return $this->db->select($this->tb, $this->field, 'post_id =' . $id);
     }
 
