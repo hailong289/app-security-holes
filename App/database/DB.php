@@ -63,10 +63,10 @@ class DB
      */
     public function select($table, array $columns = ['*'], $where = '', array $params = [], $fetch = \PDO::FETCH_ASSOC)
     {
+
         $cols = implode(', ', $columns);
         $tbl  = is_array($table) ? implode(', ', $table) : $table;
         $sql  = "SELECT {$cols} FROM {$tbl}" . ($where !== '' ? " WHERE {$where}" : '');
-        
         return $this->query($sql, $params)->fetchAll($fetch);
     }
     public function insert($table, array $data)

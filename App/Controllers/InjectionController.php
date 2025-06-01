@@ -27,7 +27,7 @@ class InjectionController extends BaseController
 
     public function index()
     {
-        $path = '/post?id=' . $_GET['url'];
+        $path = '/?id=' . $_GET['url'];
         return $this->view('layout', [
             'page' => 'injection',
             'menu' => $this->menu,
@@ -41,7 +41,7 @@ class InjectionController extends BaseController
         $postId = $_GET['id'];
         if (empty($postId)) {
             $posts = $this->posts->getPostByPublishedAll();
-
+        ;
             return $this->view('pages.postNew', [
                 'posts' => $posts,
 
@@ -55,7 +55,8 @@ class InjectionController extends BaseController
                     'message' => 'Bài viết không tồn tại hoặc đã bị xóa.',
                 ]);
             }
-            $comments = $this->comment->getCommentByPostId($postId);
+
+            $comments = $this->comment->getCommentByPostId($post[0]['post_id']);
             return $this->view('pages.post', [
                 'post' => $post[0],
                 'comments' => $comments,

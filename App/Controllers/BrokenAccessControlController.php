@@ -59,7 +59,6 @@ class BrokenAccessControlController extends BaseController
             }
             return $this->redirect($_GET['redirect']);
         } else {
-            $this->redirect('/');
             return $this->view('pages.login', [
                 'message' => 'Đăng nhập thất bại',
                 'status' => 'error',
