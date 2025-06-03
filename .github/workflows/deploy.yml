@@ -48,7 +48,7 @@ jobs:
             composer install --ignore-platform-reqs
           EOF
           
-          scp .env ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:~/public_html/.env
+          scp .env ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:~/var/www/app/.env
 
       - name: Upload .env artifact
         uses: actions/upload-artifact@v4
