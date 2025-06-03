@@ -40,7 +40,7 @@ jobs:
         run: |
           ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << 'EOF'
             set -e
-            cd ~/public_html || exit 1
+            cd ~/var/www/app || exit 1
             git fetch origin master
             git reset --hard FETCH_HEAD
             git clean -df
