@@ -28,7 +28,7 @@
     <h3 class="text-lg font-semibold mb-4 text-center">TEST</h3>
     <div class="bg-white p-6 rounded-md shadow-md">
         <form class="mb-4 relative"
-              action="<?= url('/broken-access-control') ?>"
+              action="<?= url('/test/broken-access-control') ?>"
         >
             <div class="mb-4 relative">
             <label class="block text-sm font-medium text-gray-700 mb-1">Truy cập theo trang (ví dụ: /login)</label>
@@ -38,13 +38,15 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                         </svg>
                     </span>
-                    <input
-                            type="text"
-                            class="w-full pl-10 pr-24 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition sm:text-sm"
-                            placeholder="Nhập các đường dẫn cần kiểm tra"
+                    <select
                             name="url"
-                            value="<?= !empty($_GET['url']) ? $_GET['url'] : '' ?>"
-                    />
+                            class="w-full pl-10 pr-24 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition sm:text-sm"
+                    >
+                        <option value="" disabled selected>Chọn đường dẫn</option>
+                        <option value="/login" <?= isset($_GET['url']) && $_GET['url'] === '/login' ? 'selected' : '' ?>>Trang login</option>
+                        <option value="/admin" <?= isset($_GET['url']) && $_GET['url'] === '/admin'  ? 'selected' : '' ?>>Trang admin</option>
+                        <option value="/admin/posts" <?= isset($_GET['url']) && $_GET['url'] === '/admin/posts'  ? 'selected' : '' ?>>Trang admin posts</option>
+                    </select>
                     <button
                             type="submit"
                             class="absolute right-1.5 inset-y-1.5 bg-blue-600 text-white px-4 py-1.5 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition text-sm font-medium"

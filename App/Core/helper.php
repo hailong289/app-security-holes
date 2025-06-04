@@ -194,6 +194,14 @@ if (!function_exists('activeRoute')) {
     }
 }
 
+if (!function_exists('getIp')) {
+    function getIp()
+    {
+        $public_ip = file_get_contents('https://api.ipify.org');
+        return $public_ip;
+    }
+}
+
 if (!function_exists('menu')) {
     function menu()
     {

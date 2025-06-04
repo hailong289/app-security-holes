@@ -31,7 +31,13 @@ class SSRFController extends BaseController
     {
         try {
             $content = file_get_contents($url);
-            echo $content;
+//            echo $content;
+            return [
+                'response' => $content,
+                'message' => 'Yêu cầu thành công',
+                'url' => $url,
+                'status' => 'success'
+            ];
         } catch (\Exception $e) {
             return [
                 'response' => null,
