@@ -1,57 +1,57 @@
-name: Deploy to Server
-
-on:
-  push:
-    branches:
-      - master
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Generate .env file
-        uses: docker://alpine:latest
-        with:
-          entrypoint: /bin/sh
-          args: -c "apk add --no-cache gettext && envsubst < .env.template > .env && cat .env"
-        env:
-          DB_HOST: ${{ secrets.DB_HOST }}
-          DB_NAME: ${{ secrets.DB_NAME }}
-          DB_USER: ${{ secrets.DB_USER }}
-          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-
-      - name: Set up SSH
-        uses: webfactory/ssh-agent@v0.9.0
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-      - name: Add host to known_hosts
-        run: |
-          mkdir -p ~/.ssh
-          ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
-          chmod 644 ~/.ssh/known_hosts
-        env:
-          SERVER_HOST: ${{ secrets.SERVER_HOST }}
-
-      - name: Deploy to server
-        run: |
-          ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << 'EOF'
-            set -e
-            cd ~/var/www/app || exit 1
-            git fetch origin master
-            git reset --hard FETCH_HEAD
-            git clean -df
-            rm -rf vendor composer.lock
-            composer install --ignore-platform-reqs
-          EOF
-          
-          scp .env ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:~/var/www/app/.env
-
-      - name: Upload .env artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: env-file
-          path: .env
+#name: Deploy to Server
+#
+#on:
+#  push:
+#    branches:
+#      - master
+#
+#jobs:
+#  deploy:
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v4
+#
+#      - name: Generate .env file
+#        uses: docker://alpine:latest
+#        with:
+#          entrypoint: /bin/sh
+#          args: -c "apk add --no-cache gettext && envsubst < .env.template > .env && cat .env"
+#        env:
+#          DB_HOST: ${{ secrets.DB_HOST }}
+#          DB_NAME: ${{ secrets.DB_NAME }}
+#          DB_USER: ${{ secrets.DB_USER }}
+#          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+#
+#      - name: Set up SSH
+#        uses: webfactory/ssh-agent@v0.9.0
+#        with:
+#          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+#      - name: Add host to known_hosts
+#        run: |
+#          mkdir -p ~/.ssh
+#          ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
+#          chmod 644 ~/.ssh/known_hosts
+#        env:
+#          SERVER_HOST: ${{ secrets.SERVER_HOST }}
+#
+#      - name: Deploy to server
+#        run: |
+#          ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << 'EOF'
+#            set -e
+#            cd ~/var/www/app || exit 1
+#            git fetch origin master
+#            git reset --hard FETCH_HEAD
+#            git clean -df
+#            rm -rf vendor composer.lock
+#            composer install --ignore-platform-reqs
+#          EOF
+#
+#          scp .env ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:~/var/www/app/.env
+#
+#      - name: Upload .env artifact
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: env-file
+#          path: .env
