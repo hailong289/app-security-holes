@@ -54,7 +54,6 @@ class BrokenAccessControlController extends BaseController
             // Đăng nhập thành công
             session()->set('user', $user);
             if (empty($_GET['redirect'])) {
-
                 return $this->redirect('/');
             }
             return $this->redirect($_GET['redirect']);
@@ -62,6 +61,7 @@ class BrokenAccessControlController extends BaseController
             return $this->view('pages.login', [
                 'message' => 'Đăng nhập thất bại',
                 'status' => 'error',
+                'url' => '/login'
             ]);
         }
     }

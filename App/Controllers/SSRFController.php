@@ -30,17 +30,8 @@ class SSRFController extends BaseController
     public function ssrf($url)
     {
         try {
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            $response = curl_exec($ch);
-            curl_close($ch);
-            return [
-                'response' => $response,
-                'message' => 'Yêu cầu thành công',
-                'url' => $url,
-                'status' => 'success'
-            ];
+            $content = file_get_contents($url);
+            echo $content;
         } catch (\Exception $e) {
             return [
                 'response' => null,
