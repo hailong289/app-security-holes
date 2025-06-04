@@ -17,7 +17,7 @@ class SSRFController extends BaseController
                 'page' => 'ssrf',
                 'menu' => menu(),
                 'message' => $request['message'],
-                'response' => $request['response'],
+                'response_content' => $request['response_content'],
                 'status' => $request['status'],
             ]);
         }
@@ -33,14 +33,14 @@ class SSRFController extends BaseController
             $content = file_get_contents($url);
 //            echo $content;
             return [
-                'response' => $content,
+                'response_content' => $content,
                 'message' => 'Yêu cầu thành công',
                 'url' => $url,
                 'status' => 'success'
             ];
         } catch (\Exception $e) {
             return [
-                'response' => null,
+                'response_content' => null,
                 'message' => $e->getMessage(),
                 'url' => $url,
                 'status' => 'error'

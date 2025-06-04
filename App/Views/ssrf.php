@@ -15,7 +15,7 @@
 <h2 class="text-xl font-semibold mb-2">Cách Kiểm Tra Lỗi</h2>
 <ol class="list-decimal pl-5 mb-4 text-gray-600">
     <li><strong>Thử địa chỉ:</strong> Gửi <code>url=<?=getBaseUrl()?></code> và kiểm tra phản hồi để thấy dữ liệu nội bộ như trang web mặc định.</li>
-    <li><strong>Kiểm tra cổng và file:</strong> Thử <code>url=<?=getIp()?>:3306</code> (MySQL) hoặc <code>url=file:///etc/hosts</code> hoặc <code>url=file:///etc/passwd</code>và ghi nhận kết quả.</li>
+    <li><strong>Kiểm tra cổng và file:</strong> Thử <code>url=<?=getIp()?>:3306</code> (MySQL) hoặc <code>url=file:///etc/hosts</code> hoặc <code>url=file:///etc/passwd</code> và ghi nhận kết quả.</li>
     <li><strong>Bỏ qua bộ lọc:</strong> Sử dụng <code>url=<?=getBaseUrl()?>%20@safe.com</code> để vượt qua whitelist đơn giản.</li>
 </ol>
 
@@ -47,10 +47,10 @@
                 <?php endif; ?>
             </div>
         </div>
-        <?php if(!empty($response)): ?>
+        <?php if(!empty($response_content)): ?>
             <div class="mt-4 p-4 rounded-md bg-gray-100 text-gray-800">
                 <strong class="font-semibold">Nội dung phản hồi:</strong>
-                <pre class="whitespace-wrap break-words mt-2"><?=htmlspecialchars($response)?></pre>
+                <pre class="whitespace-wrap break-words mt-2"><?=htmlspecialchars($response_content)?></pre>
             </div>
         <?php endif; ?>
     </div>
