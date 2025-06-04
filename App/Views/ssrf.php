@@ -19,31 +19,31 @@
 
 
 <!-- Form giả lập -->
-<div class="mt-6">
-    <h3 class="text-lg font-semibold mb-4 text-center">TEST</h3>
-    <div class="bg-white p-6 rounded-md shadow-md">
-        <div class="mt-4 p-4 rounded-md">
-            <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
-                <h2 class="text-xl font-semibold text-gray-800 text-center mb-4">Thử Gửi Yêu Cầu</h2>
-                <form id="ssrfForm" method="GET" action="<?=url('/test/server-side-request-forgery')?>">
-                    <div class="mb-6">
-                        <label for="url" class="block text-gray-700 text-sm font-bold mb-2">Nhập URL để kiểm tra</label>
-                        <input type="text" id="url" name="url" required
-                                 value="<?=isset($_GET['url']) ? htmlspecialchars($_GET['url']) : ''?>"
-                               class="w-full p-2 border rounded focus:outline-none focus:ring-2"
-                               placeholder="Thử 'http://example.com/secret'">
-                    </div>
-                    <button type="submit"
-                            class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                        Gửi yêu cầu
-                    </button>
-                </form>
-                <?php if(!empty($message)): ?>
-                    <div class="mt-4 p-4 rounded-md bg-<?= $status === 'success' ? 'green' : 'red' ?>-100 text-<?= $status === 'success' ? 'green' : 'red' ?>-700">
-                        <strong class="font-semibold">Kết quả:</strong> <?=$message?>
-                    </div>
-                <?php endif; ?>
-            </div>
-        </div>
-    </div>
-</div>
+<!--<div class="mt-6">-->
+<!--    <h3 class="text-lg font-semibold mb-4 text-center">TEST</h3>-->
+<!--    <div class="bg-white p-6 rounded-md shadow-md">-->
+<!--        <div class="mt-4 p-4 rounded-md">-->
+<!--            <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">-->
+<!--                <h2 class="text-xl font-semibold text-gray-800 text-center mb-4">Thử Gửi Yêu Cầu</h2>-->
+<!--                <form id="ssrfForm" method="GET" action="--><?php //=url('/test/server-side-request-forgery')?><!--">-->
+<!--                    <div class="mb-6">-->
+<!--                        <label for="url" class="block text-gray-700 text-sm font-bold mb-2">Nhập URL để kiểm tra</label>-->
+<!--                        <input type="text" id="url" name="url" required-->
+<!--                                 value="--><?php //=isset($_GET['url']) ? htmlspecialchars($_GET['url']) : ''?><!--"-->
+<!--                               class="w-full p-2 border rounded focus:outline-none focus:ring-2"-->
+<!--                               placeholder="Thử 'http://example.com/secret'">-->
+<!--                    </div>-->
+<!--                    <button type="submit"-->
+<!--                            class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">-->
+<!--                        Gửi yêu cầu-->
+<!--                    </button>-->
+<!--                </form>-->
+<!--                --><?php //if(!empty($message)): ?>
+<!--                    <div class="mt-4 p-4 rounded-md bg---><?php //= $status === 'success' ? 'green' : 'red' ?><!---100 text---><?php //= $status === 'success' ? 'green' : 'red' ?><!---700">-->
+<!--                        <strong class="font-semibold">Kết quả:</strong> --><?php //=$message?>
+<!--                    </div>-->
+<!--                --><?php //endif; ?>
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
